@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
-	<groupId>com.silentworlds</groupId>
-	<artifactId>Siddiqui_Tariq_SlientWorlds_CaseStudy</artifactId>
+	<groupId>com.tariqsiddiqui.silentworlds</groupId>
+	<artifactId>SilentWorlds</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Siddiqui_Tariq_SlientWorlds_CaseStudy</name>
-	<description>Siddiqui_Tariq_SlientWorlds_CaseStudy</description>
+	<name>SilentWorlds</name>
+	<description>SilentWorlds</description>
 	<properties>
 		<java.version>18</java.version>
 	</properties>
