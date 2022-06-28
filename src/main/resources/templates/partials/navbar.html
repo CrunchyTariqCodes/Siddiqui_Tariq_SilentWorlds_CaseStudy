@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+</head>
+<body>
+
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light navbar-custom">
+    <a class="nav-font navbar-brand" href="/">Silent Worlds</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="d-flex navbar-nav">
+            <div class="nav-item">
+                <a class="nav-font nav-link" th:href="@{/best-sellers}">Bestsellers</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-font nav-link" th:href="@{/bookclubs}">Bookclubs</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-font nav-link" th:href="@{/about-us}">About Us</a>
+            </div>
+            <div sec:authorize="isAnonymous()" class="d-flex navbar-nav">
+                <div class="nav-item">
+                    <a class="nav-font nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-font nav-link" href="/sign-up">Register</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-font nav-link" href="/booksearch"><i class="bi bi-search"></i></a>
+                </div>
+            </div>
+            <div sec:authorize="isAuthenticated()" class="d-flex navbar-nav">
+                <div class="nav-item">
+                    <a class="nav-font nav-link" th:href="@{/profile/{username}(username=${#authentication.principal.username})}"><i class="bi bi-person-circle"></i></a>
+                </div>
+                <div class="nav-item">
+                    <form th:action="@{/logout}" th:method="post">
+                        <button class="nav-font nav-link btn-link btn">Logout</button>
+                    </form>
+                </div>
+
+                <div class="nav-item">
+                    <a class="nav-link" href="/booksearch"><i class="bi bi-search"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

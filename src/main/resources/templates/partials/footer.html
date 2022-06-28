@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Footer Fragment</title>
+</head>
+<body>
+    <th:block th:fragment="footer">
+        <footer>
+            <div class="container-fluid mt-3" id="footer-container">
+
+                <hr class="mb-2" />
+                <div class="container-fluid my-3" id="media-icon-container">
+                    <div class="d-flex justify-content-around">
+                        <a href="https://github.com/CrunchyTariqCodes/Siddiqui_Tariq_SilentWorlds_CaseStudy" class="social-media-icon mx-2" id="fb-icon"><i class="bi bi-github"></i></a>
+                        <a href="/" class="social-media-icon mx-2" id="insta-icon"><i class="bi bi-book"></i></a>
+                        <a href="" class="social-media-icon mx-2" id="twitter-icon"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="container-fluid my-3" id="copyright-container">
+                    <p class="text-muted text-center">&copy; Silent Worlds 2022 We love our book lovers!</p>
+                </div>
+            </div>
+        </footer>
+    </th:block>
+</body>
+</html>

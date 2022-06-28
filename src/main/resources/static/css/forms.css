@@ -1,0 +1,219 @@
+
+.underline {
+    display: flex;
+    text-decoration: none;
+    color: #266150;
+    transition: transform .2s;
+}
+
+.underline:hover {
+    text-decoration: underline;
+    color: #266150;
+    transform: scale(1.1);
+
+}
+
+    .form-layout {
+        border: solid var(--makeup-tan) 1px;
+        width: 30rem;
+        border-radius: 10px;
+        margin: 0 auto;
+        background-color: var(--off-white);
+    }
+
+    .form-background-img {
+        background-image: url("../img/book-reader-2.png");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 115% 90%;
+    }
+
+    .form-img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .form-img-flip {
+        transform: scaleX(-1);
+    }
+
+    .img-width {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: -175px;
+    }
+
+    .img-flip {
+        position: relative;
+        z-index: 0;
+        transform: rotate(180deg);
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: -150px;
+    }
+
+    .form-container {
+        margin: auto;
+        padding: 0 30px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .msg-space {
+         margin-top: 35px;
+         margin-bottom: 50px;
+     }
+
+    .register-msg-space {
+        margin-top: 50px;
+    }
+
+    .if-message {
+        height: 24px;
+        margin: 20px 0;
+    }
+
+    .input-spacing {
+        margin-bottom: 40px;
+    }
+
+    .err-msg {
+        height: 24px;
+        margin: 5px 0;
+    }
+
+    .submit-position {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .form-submit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border-style: none;
+        width: 75px;
+        height: 75px;
+        background-color: #266150;
+        transition: transform .2s;
+    }
+
+    .form-submit:hover {
+        transform: scale(1.1);
+    }
+
+    .bi-arrow-right {
+        font-size: 35px;
+        color: white;
+    }
+
+    .links-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 60px;
+        margin-bottom: 30px;
+    }
+
+    .forgot-pass-redirect {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+        margin-bottom: 30px;
+    }
+
+    .forgot-pass-redirect h6 {
+        margin-bottom: 20px;
+    }
+
+    .showPassSpacing {
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+    }
+
+    .showPassSpacing input {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .showPassSpacing p {
+        margin-bottom: 0;
+    }
+
+    .desktop-image {
+        display: none;
+    }
+
+
+@media (min-width: 992px) {
+
+    .form-layout {
+        border-top: solid var(--makeup-tan) 1px;
+        border-bottom: solid var(--makeup-tan) 1px;
+        border-left: solid var(--makeup-tan) 1px;
+        border-right: none;
+        width: 40rem;
+        border-radius: 10px 0 0 10px;
+        margin: auto 0 auto auto;
+    }
+
+    .img-width {
+        width: 100%;
+        border-radius: 10px 0;
+        margin-bottom: -250px;
+    }
+
+    .img-flip {
+        transform: rotate(180deg);
+        border-radius: 10px 0;
+    }
+
+    .form-container {
+        padding: 0 40px;
+    }
+
+    .msg-space {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .register-msg-space {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .forgot-pass-redirect {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .input-spacing {
+        margin-bottom: 20px;
+    }
+
+    .links-container {
+        margin-top: 30px;
+    }
+
+    .desktop-image {
+        display: flex;
+        width: 30rem;
+        border-top: solid var(--makeup-tan) 1px;
+        border-right: solid var(--makeup-tan) 1px;
+        border-bottom: solid var(--makeup-tan) 1px;
+        border-left: none;
+        border-radius: 0 10px 10px 0;
+        margin-right: auto;
+    }
+
+    .login-dsktp-clr {background-color: #83A473;}
+    .register-dsktp-clr {background-color: #E8CEBF;}
+    .forgot-pass-dsktp-clr {background-color: #266150;}
+    .reset-dsktp-clr {background-color: #266150;}
+}

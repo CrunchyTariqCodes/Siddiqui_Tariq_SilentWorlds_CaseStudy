@@ -1,0 +1,269 @@
+/*  MAIN STYLING FOR silent worlds*/
+:root {
+    /*  Colors  */
+    --makeup-tan: #DDAF94;
+    --blush: #E8CEBF;
+    --link-pink: #f5dbd5;
+    --forest-green: #266150;
+    --green: #83A473;
+    --dark-grey: #4F4846;
+    --dark-brown: #2A1510;
+    --off-white:  #FDF8F5;
+    --danger: #d54f49;
+
+    /*  Fonts  */
+    --raleway: 'Raleway', sans-serif;
+    --montserrat: 'Montserrat', sans-serif;
+    --alegreya: 'Alegreya', serif;
+
+    /*  Border Radius  */
+    --border-radius: 10px;
+    --img-border-radius: 150px;
+
+    /*  Header  */
+    --header-height: 550px;
+    --header-small-width: 40vw;
+    --header-large-width: 60vw;
+
+}
+
+
+body {
+    position: relative;
+}
+
+.navbar-custom {
+    background-color: transparent;
+}
+
+.nav-font {
+    font-family: var(--montserrat);
+
+}
+
+.site-margin {
+    margin: 30px 50px;
+    overflow: hidden;
+}
+
+/*Buttons for the website*/
+.button {
+    padding: 10px 10px;
+    font-family: var(--raleway);
+    font-size: .9rem;
+    font-weight: 200;
+    color: var(--off-white);
+    background-color: var(--forest-green);
+    border-radius: var(--border-radius);
+    border: none;
+    outline:none;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0 !important;
+}
+
+.danger-button {
+    background-color: var(--danger);
+}
+
+/*Loading Icon*/
+.loading-icon{
+    width: 80px;
+    height: 80px;
+
+    border: 2px solid #f3f3f3;
+    border-top:3px solid #54dec3;
+    border-radius: 100%;
+
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+          transform: rotate(360deg);
+      }
+}
+
+.loading-icon.show {
+    display: block;
+}
+
+
+header {
+    display: flex;
+}
+
+.header-block-left {
+    height: var(--header-height);
+    width: var(--header-large-width);
+    position: relative;
+    background-color: var(--blush);
+}
+
+.header-block-right {
+    height: var(--header-height);
+    width: var(--header-small-width);
+    position: relative;
+    background-color: var(--makeup-tan);
+}
+
+/* horizontal book scroll and book cards  */
+
+.book, .members {
+    position: relative;
+}
+
+.book-row, .members-container {
+    display: flex;
+    overflow: auto;
+}
+
+.book-row {
+    margin: 50px 0;
+}
+
+/*  Just Book Cards Starts Here  */
+
+.book-img, .member-image {
+    margin: 16px;
+    width: 12rem;
+}
+
+.book-img {
+    border-radius: var(--border-radius);
+    border: 4px solid var(--off-white);
+}
+
+.book-cover {
+    margin: 16px;
+    flex: 1;
+    position: relative;
+    background-color: var(--blush);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--makeup-tan);
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-evenly;*/
+    width: 200px;
+    overflow-wrap: break-word;
+    color: #000;
+    margin-left: 10px;
+    margin-bottom: 90px;
+}
+
+.book-title{
+    margin: 15px 0 10px 25px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+
+    /* Adds a hyphen where the word breaks */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    font-family: var(--raleway);
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.book-author {
+    font-family: var(--montserrat);
+    color: var(--forest-green);
+    font-size: 1em;
+    margin-left: 24px;
+}
+
+.book-img:hover{
+    cursor: pointer;
+    transform: translateY(-3px);
+}
+
+.social-media-icon {
+    font-size: 2em;
+    color: var(--forest-green);
+    margin-top: 3px;
+}
+
+.social-media-icon:hover {
+    transform: translateY(-3px);
+    color: var(--green);
+}
+
+#content-wrap {
+
+    padding-bottom: 2.5rem;
+}
+
+#footer-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+
+.post-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.create-post-container {
+    width: 100%;
+}
+
+.create-post-title {
+    font-size: 2.5em;
+    text-align: center;
+    color: var(--dark-grey);
+    font-family: var(--alegreya);
+}
+
+.post-control {
+    margin-top: 20px;
+}
+
+.create-post-card {
+    background-color: var(--blush);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--makeup-tan) ;
+    padding: 30px;
+}
+
+@media (min-width: 768px) {
+
+    .book-cover {
+        display: flex;
+    }
+
+    .book-title {
+        margin-left: 0;
+        margin-top: 10px;
+        padding-top: 20px;
+        font-weight: 700;
+        font-size: 1.3em;
+    }
+
+    .book-author {
+        margin: 0;
+        font-size: 1em;
+    }
+
+    .book-info {
+        margin: 0;
+    }
+
+    .create-post-container {
+        width: 60%;
+    }
+}

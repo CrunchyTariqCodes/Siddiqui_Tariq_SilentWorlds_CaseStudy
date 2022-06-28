@@ -1,0 +1,169 @@
+.featured-bg {
+    background-image: url("../img/club-background.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.header-text {
+    position: absolute;
+    top: 21%;
+    left: 10%;
+    z-index: 1;
+}
+
+.nyt-text {
+    font-size: 2rem;
+    font-family: var(--raleway);
+    color: var(--dark-brown);
+    text-transform: uppercase;
+}
+
+.best-sellers-text {
+    font-size: 3em;
+    font-family: var(--montserrat);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 3px 3px 2px rgb(150, 150, 150);
+}
+
+.header-img {
+    display: none;
+}
+
+.best-sellers-menu {
+    position: absolute;
+    display: flex;
+    list-style: none;
+    left: -41px;
+    bottom: -60px;
+}
+
+.best-sellers-links, .best-sellers-links:hover, .best-sellers-links:visited{
+    padding: 7px 10px;
+    margin: 3px;
+    font-size: .9rem;
+    font-weight: 200;
+    color: var(--off-white);
+    background-color: var(--forest-green);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+}
+
+.best-sellers-li:hover {
+    transform: translateY(-3px);
+}
+
+.heading-background-one, .heading-background-two {
+    position: absolute;
+    z-index: -1;
+    top: -153px;
+    overflow: hidden;
+}
+
+.heading-background-one {
+    left: -61px;
+}
+
+.heading-background-two {
+    right: -61px;
+}
+
+.list-title-one, .list-title-two {
+    font-size: 1.8em;
+    font-family: var(--alegreya);
+    text-align: center;
+    padding: 20px;
+}
+
+.rank {
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+}
+
+.rank-shadow {
+    position: absolute;
+    right: 24px;
+    bottom: 9px;
+}
+
+.rank-shadow h1 {
+    font-family: var(--montserrat);
+    font-size: 6em;
+    color: var(--green);
+}
+
+.rank h1 {
+    font-family: var(--montserrat);
+    font-size: 6em;
+    color: var(--forest-green);
+}
+
+@media (min-width: 768px) {
+    .nyt-text {
+        font-size: 2rem;
+    }
+
+    .best-sellers-text {
+        font-size: 5em;
+    }
+
+    .header-img {
+        display: block;
+        float: right;
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        right: 10px;
+        top: 117px;
+    }
+
+    .best-sellers-links, .best-sellers-links:hover, .best-sellers-links:visited {
+        padding: 10px 15px;
+        margin: 10px;
+        font-size: 1.3rem;
+    }
+
+    .list-title-one, .list-title-two {
+        font-size: 2.5em;
+    }
+
+    .list-title-one {
+        text-align: left;
+    }
+
+    .list-title-two {
+        text-align: right;
+    }
+}
+
+@media (min-width: 992px) {
+    .header-img {
+        height: 500px;
+        width: 500px;
+        right: 30px;
+        bottom: 15px;
+    }
+
+    .list-title-one, .list-title-two {
+        font-size: 3em;
+    }
+}
+
+@media (min-width: 2500px) {
+    .best-sellers-text {
+        font-size: 7em;
+    }
+
+    .nyt-text {
+        font-size: 3em;
+    }
+    .header-img {
+        height: 700px;
+        width: 700px;
+        right: 151px;
+        top: 39px;
+    }
+}

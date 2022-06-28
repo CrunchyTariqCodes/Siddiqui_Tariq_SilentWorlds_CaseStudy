@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="partials/head :: head(title = ${user.username})">
+    </head>
+    <body class="book-club-bg">
+        <nav th:replace="partials/navbar :: navbar"></nav>
+        <div id="content-wrap">
+            <main>
+                    <div class="club-container">
+                        <div class="intro-members-sections">
+                            <!--        User Intro Section        -->
+                            <section class="club-intro-section">
+                                <div class="avatar-controls-container">
+                                    <div class="club-avatar">
+                                        <img class="avatar-responsive club-img" th:src="${user.avatarURL}" alt="avatar profile image"/>
+                                    </div>
+                                    <!--       Authenticated User Controls         -->
+                                    <div class="profile-buttons" th:if="${showEditControls}">
+                                        <form th:action="@{/edit-profile/{username} (username = ${user.username})}">
+                                            <button class="button" type="submit">
+                                                Edit Profile
+                                            </button>
+                                        </form>
+                                        <button type="button" class="button danger-button" data-toggle="modal" data-target="#deleteModal">
+                                            Delete Profile
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="user-info-container" th:name="user-info">
+                                    <div class="club-name-container">
+                                        <h4 class="club-name">
+                                            <span th:text="${user.firstName}"></span>
+                                            <span th:text="${user.middleName}"></span>
+                                            <span th:text="${user.lastName}"></span>
+                                        </h4>
+                                    </div>
+                                    <div class="user-info">
+                                        <div class="user-info-flex">
+                                            <div class="user-info-title">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                                                </svg>
+                                            </div>
+                                            <p class="genre user-detail" th:text="${user.email}"></p>
+                                        </div>
+                                        <div class="user-info-flex">
+                                            <div class="user-info-title">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                                                </svg>
+                                            </div>
+                                            <p class="genre user-detail" th:text="${user.websiteURL}"></p>
+                                        </div>
+                                        <div class="user-info-flex">
+                                            <div class="user-info-title">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-emoji-laughing-fill" viewBox="0 0 16 16">
+                                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5c0 .501-.164.396-.415.235C6.42 6.629 6.218 6.5 6 6.5c-.218 0-.42.13-.585.235C5.164 6.896 5 7 5 6.5 5 5.672 5.448 5 6 5s1 .672 1 1.5zm5.331 3a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zm-1.746-2.765C10.42 6.629 10.218 6.5 10 6.5c-.218 0-.42.13-.585.235C9.164 6.896 9 7 9 6.5c0-.828.448-1.5 1-1.5s1 .672 1 1.5c0 .501-.164.396-.415.235z"/>
+                                                </svg>
+                                            </div>
+                                            <p class="genre user-detail" th:text="${user.pronouns}"></p>
+                                        </div>
+                                        <div class="user-info-flex">
+                                            <div class="user-info-title">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                                </svg>
+                                            </div>
+                                            <p class="genre user-detail" th:text="${user.country}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--        User Club and About Section        -->
+                            <section class="club-members-about-club">
+                                <h3 class="club-heading">Book Clubs</h3>
+                                <div class="members-container">
+                                    <!--    SHOW BOOKCLUBS    -->
+                                    <div th:each="bookclub : ${bookclubs}">
+                                        <div th:if="${bookclub.owner.id == user.id}" class="owner-card member-card">
+                                            <div class="member-img-container">
+                                                <img class="member-image" th:src="${bookclub.headerImageUrl}" alt="book club image">
+                                            </div>
+                                            <div class="member-info profile-club-info">
+                                                <a class="member-name-link" th:href="@{/bookclub/{id}(id=${bookclub.id})}" th:text="${bookclub.name}"></a>
+                                            </div>
+                                            <div class="owner-icon-club">
+                                                <img th:src="@{../img/owner-icon.svg}" alt="star doodle"/>
+                                            </div>
+                                        </div>
+                                        <div th:unless="${bookclub.owner.id == user.id}" class="member-card member-card">
+                                            <img class="member-image" th:src="${bookclub.headerImageUrl}" alt="book club image">
+                                            <div class="member-info profile-club-info">
+                                                <a class="member-name-link" th:href="@{/bookclub/{id}(id=${bookclub.id})}" th:text="${bookclub.name}"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="about-heading">
+                                    <h3 class="club-heading">About Me</h3>
+                                </div>
+                                <div class="about-club-container">
+                                    <div class="about-body">
+                                        <p th:text="${user.aboutMe}"></p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!--        Book Shelf Section        -->
+                        <section class="club-blog">
+                            <div class="post-container">
+                                <!--   READ BOOKS     -->
+                                <div class="shelves">
+                                    <h4 class="club-heading bookshelf-title">Bookshelf</h4>
+                                    <h5 class="club-heading collapse-button-read">Read</h5>
+                                    <div id="read">
+                                        <div class="book-shelf book-row">
+                                            <div th:each="extract : ${read}">
+                                                <div class="bookshelf-cover">
+                                                    <div class="book readBook" th:id="${extract.book.gbreference}"
+                                                         th:data-bookId="${extract.book.id}" data-toggle="modal"
+                                                         data-target="#bookModal">
+                                                        <!--       Books are rendered here        -->
+                                                    </div>
+                                                    <div class="bookshelf-delete">
+                                                        <form th:action="@{/profile/{username}/delete/{id}(username=${user.username}, id=${extract.id})}"
+                                                              method="post">
+                                                            <button class="bookshelf-delete-button" type="submit">X</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="select-container bookshelf-select-container">
+                                                        <form th:action="@{/profile/{username}/{bookshelfId}(username=${user.username}, bookshelfId=${extract.id})}"
+                                                              method="post">
+                                                            <select class="bookshelf-select" name="bookshelfStatus" onchange="this.form.submit()">
+                                                                <option th:value="'READ'" selected disabled>READ</option>
+                                                                <option th:value="'READING'">READING</option>
+                                                                <option th:value="'WISHLIST'">WISHLIST</option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--   READING BOOKS     -->
+                                    <h5 class="club-heading collapse-button-reading">Reading</h5>
+                                    <div id="reading">
+                                        <div class="book-shelf book-row">
+                                            <div th:each="extract : ${reading}">
+                                                <div class="bookshelf-cover">
+                                                    <div class="book activeBook" th:id="${extract.book.gbreference}"
+                                                         th:data-bookId="${extract.book.id}" data-toggle="modal"
+                                                         data-target="#bookModal">
+                                                        <!--       Books are rendered here        -->
+                                                    </div>
+                                                    <div class="bookshelf-delete">
+                                                        <form th:action="@{/profile/{username}/delete/{id}(username=${user.username}, id=${extract.id})}"
+                                                              method="post">
+                                                            <button class="bookshelf-delete-button" type="submit">X</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="select-container bookshelf-select-container">
+                                                        <form th:action="@{/profile/{username}/{bookshelfId}(username=${user.username}, bookshelfId=${extract.id})}"
+                                                              method="post">
+                                                            <select class="bookshelf-select" name="bookshelfStatus" onchange="this.form.submit()">
+                                                                <option th:value="'READ'">READ</option>
+                                                                <option th:value="'READING'" selected disabled>READING</option>
+                                                                <option th:value="'WISHLIST'">WISHLIST</option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--   WISHLIST     -->
+                                    <h5 class="club-heading collapse-button-wishlist">Wishlist</h5>
+                                    <div id="wishlist">
+                                        <div class="book-shelf book-row">
+                                            <div th:each="extract : ${wishlist}">
+                                                <div class="bookshelf-cover">
+                                                    <div class="book wishlistBook " th:id="${extract.book.gbreference}"
+                                                         th:data-bookId="${extract.book.id}" data-toggle="modal"
+                                                         data-target="#bookModal">
+                                                        <!--       Books are rendered here        -->
+                                                    </div>
+                                                    <div class="bookshelf-delete">
+                                                        <form th:action="@{/profile/{username}/delete/{id}(username=${user.username}, id=${extract.id})}"
+                                                              method="post">
+                                                            <button class="bookshelf-delete-button" type="submit">X</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="select-container bookshelf-select-container">
+                                                        <form th:action="@{/profile/{username}/{bookshelfId}(username=${user.username}, bookshelfId=${extract.id})}"
+                                                              method="post">
+                                                            <select class="bookshelf-select" name="bookshelfStatus" onchange="this.form.submit()">
+                                                                <option th:value="'READ'">READ</option>
+                                                                <option th:value="'READING'">READING</option>
+                                                                <option th:value="'WISHLIST'" selected disabled>WISHLIST</option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--      SVG GRAPHIC        -->
+                                <div class="post-container-footer">
+                                    <img class="profile-page-shapes" th:src="@{../img/profile-shapes.svg}">
+                                </div>
+                            </div>
+                        </section>
+
+                        <!--    SHOW BOOK MODAL    -->
+                        <div class="modal custom-modal fade" id="bookModal">
+                            <div class="modal-dialog modal-dialog-center modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"></h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body book-modal-body"></div>
+                                    <div>
+                                        <!-- CREATE A NEW REVIEW -->
+                                        <div class="comment-form-container blog-card modal-review">
+                                            <form class="form-group" id="createReview" th:action="@{/createReview}" th:object="${review}" method="post">
+                                                <input id="reviewId" type="hidden">
+                                                <div th:text="${review.owner}"></div>
+                                                <div class="">
+                                                    <label class="comment-heading" for="createBody">Leave a Review</label>
+                                                    <textarea class="form-control" name="createBody" id="createBody" rows="10" th:field="*{body}"></textarea>
+                                                </div>
+                                                <div class="select-container review-select-container">
+                                                    <label class="rate-me" for="createRating">Rate Me:</label>
+                                                    <select class="bookshelf-select" name="createRating" id="createRating" th:field="*{rating}">
+                                                        <option th:value="1">1</option>
+                                                        <option th:value="2">2</option>
+                                                        <option th:value="3">3</option>
+                                                        <option th:value="4">4</option>
+                                                        <option th:value="5">5</option>
+                                                    </select>
+                                                </div>
+                                                <button class="button comment-btn" type="submit">Submit</button>
+                                            </form>
+                                            <form id="deleteReview" th:action="@{/deleteReview}" method="post">
+                                                <button class="button danger-button delete-review-modal" type="submit">Delete Review</button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="modal-ft button close-button" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--        Delete modal-->
+                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteModalLabel">Delete Profile</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form th:action="@{/profile/{username}/delete(username=${user.username})}" method="post">
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <h5>Are you sure you want to delete your profile?</h5>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="button" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="button danger-button">Confirm Deletion</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer th:replace="partials/footer :: footer"></footer>
+        </div>
+        <script type="text/javascript" th:src="@{/js/profileBooks.js}" defer></script>
+
+    </body>
+</html>

@@ -1,0 +1,81 @@
+.err-background-1 {
+    background-image: url("../img/organic-shapes-1.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.err-background-2 {
+    background-image: url("../img/organic-shapes-2.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.outer-container {
+    overflow: hidden;
+    margin: 0;
+    height: 80vh;
+    background-color: #DDAF94;
+}
+
+.right-container {
+    border-radius: 10px;
+    margin: 30px auto 0 auto;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.right-container * {
+    margin: 20px 0;
+}
+
+.content-space {
+    height: 80%;
+}
+
+.err-redirect-btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (min-width: 992px) {
+    .outer-container {
+        background-color: #FDF8F5;
+        margin: 0;
+        height: 100vh;
+        background-image: url("../img/book-reader-2.svg");
+        background-repeat: no-repeat;
+        background-position: left;
+        background-attachment: fixed;
+        background-size: 40%;
+    }
+
+    .right-container {
+        border: solid #DDAF94 2px;
+        background-color: #E8CEBF;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        width: 50%;
+        margin: 0 0 0 auto;
+        padding: 0 40px;
+        text-align: left;
+    }
+
+    .right-container h4 {
+        font-size: 3em;
+    }
+
+    .right-container h6 {
+        font-size: 2em;
+    }
+
+    .err-redirect-btns {
+        justify-content: space-between;
+    }
+
+}

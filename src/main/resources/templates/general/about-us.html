@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: head(title = 'About Us')">
+</head>
+<body class="about-dev-bg">
+<nav th:replace="partials/navbar :: navbar"></nav>
+<div id="content-wrap">
+    <main>
+        <div class="site-margin">
+            <section class="about-us-container">
+                <div class="dev-profile-container">
+                    <div class="about-us-graphic-top">
+                        <img class="about-us-svg-top" th:src="@{/img/about-us-footer.svg}" alt="shapes">
+                    </div>
+                    <div class="dev-profile-title-container">
+                        <div class="dev-profile-title">
+                            <p>Meet The Developers</p>
+                        </div>
+                    </div>
+                    <div class="dev-card-container">
+                        <div class="dev-profile" id="dev-tariq-siddiqui">
+                            <div class="dev-card">
+                                <p class="dev-name-text">Tariq Siddiqui</p>
+                                <div class="dev-img-container">
+                                    <img th:src="@{/img/tariq.jpg}" alt="" class="dev-img">
+                                </div>
+                                <a th:href="@{/book/duZlF7Pf7EkC}" class="dev-quote-text">“The moment you doubt whether you can fly, you cease forever to be able to do it.” - J.M. Barrie</a>
+                                <div class="dev-social-container">
+                                    <a href="https://github.com/CrunchyTariqCodes/" class="dev-social-media-icon" id="gh-icon-tariq-siddiqui"><i class="bi bi-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/tariq-siddiqui-codes/" class="dev-social-media-icon" id="li-icon-tariq-siddiqui"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dev-profile" id="dev-olive-the-dog">
+                            <div class="dev-card">
+                                <p class="dev-name-text">Olive the Dog</p>
+                                <div class="dev-img-container">
+                                    <img th:src="@{/img/olive.jpg}" alt="" class="dev-img">
+                                </div>
+                                <a th:href="@{/book/rH9mA0MpLM4C}" class="dev-quote-text">“There is nothing like looking, if you want to find something. You certainly usually find something, if you look, but it is not always quite the something you were after.” - J.R.R. Tolkien</a>
+                                <div class="dev-social-container">
+                                    <a href="https://github.com/CrunchyTariqCodes/Siddiqui_Tariq_SilentWorlds_CaseStudy" class="dev-social-media-icon" id="gh-icon-olive-the-dog"><i class="bi bi-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/tariq-siddiqui-codes/https://www.linkedin.com/in/tariq-siddiqui-codes/" class="dev-social-media-icon" id="li-icon-olive-the-dog"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dev-profile" id="dev-sophie-the-cat">
+                            <div class="dev-card">
+                                <p class="dev-name-text">Sophie the Cat</p>
+                                <div class="dev-img-container">
+                                    <img th:src="@{/img/sophie.jpg}" alt="" class="dev-img">
+                                </div>
+                                <a th:href="@{/book/lqHNugAACAAJ}" class="dev-quote-text">“All we have to decide is what to do with the time that is given us.” - J.R.R. Tolkien</a>
+                                <div class="dev-social-container">
+                                    <a href="https://github.com/CrunchyTariqCodes/Siddiqui_Tariq_SilentWorlds_CaseStudy" class="dev-social-media-icon" id="gh-icon-sophie-the-cat"><i class="bi bi-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/tariq-siddiqui-codes/" class="dev-social-media-icon" id="li-icon-sophie-the-cat"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-us-graphic">
+                        <img class="club-page-shapes about-us-svg-bottom" th:src="@{/img/about-us-footer.svg}" alt="shapes">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer th:replace="partials/footer :: footer"></footer>
+</div>
+</body>
+</html>
